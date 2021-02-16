@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>New person</title>
+</head>
+
+<body>
+
+<!-- тег form -  раздел документа, позволяющий пользователю вводить информацию для последующей обработки системой  -->
+<!-- @{/people} - URL адресс  -->
+<!-- ${person} - объект, для которого создана форма  -->
+<!-- *{name} - поле класса person  -->
+
+<form th:method="post" th:action="@{/people}" th:object="${person}">
+    <!-- заглавие для input'а  -->
+    <label for="name"> Enter your name: </label>
+    <!-- Ввод данных для поля name класса person  -->
+    <input type="text" th:field="*{name}" id="name"/>
+    <!-- тег br - перевод строки, не оставляет обзаца  -->
+    <br/>
+    <!-- Кнопка ввода данных  -->
+    <input type="submit" value="Create!">
+</form>
+
+</body>
+
+</html>
