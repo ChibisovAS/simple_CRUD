@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>People list</title>
+</head>
+
+<body>
+
+<!-- тег div - логический блок  -->
+
+<!-- тег a - ссылка -->
+
+<!--like for-each  -->
+<div th:each="person : ${people}">
+
+    <!--link to "/people/id" by .getId() method  -->
+    <!--text by .getName() method -->
+    <a th:href="@{/people/{id}(id=${person.getId()})}"
+       th:text="${person.getName()}"> user
+    </a>
+
+</div>
+
+</body>
+
+</html>
