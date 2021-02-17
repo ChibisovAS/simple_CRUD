@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>New person</title>
+    <title>Edit person</title>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 <!-- ${person} - объект, для которого создана форма  -->
 <!-- *{name} - поле класса person  -->
 
-<form th:method="post" th:action="@{/people}" th:object="${person}">
+<form th:method="patch" th:action="@{/people/{id}(id=${person.getId()})}" th:object="${person}">
     <!-- заглавие для input'а  -->
     <label for="name"> Enter your name: </label>
     <!-- Ввод данных для поля name класса person  -->
@@ -21,7 +21,7 @@
     <!-- тег br - перевод строки, не оставляет обзаца  -->
     <br/>
     <!-- Кнопка ввода данных  -->
-    <input type="submit" value="Create!">
+    <input type="submit" value="Update!">
 </form>
 
 </body>

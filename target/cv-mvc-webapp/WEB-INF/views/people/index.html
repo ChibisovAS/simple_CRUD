@@ -20,8 +20,13 @@
     <a th:href="@{/people/{id}(id=${person.getId()})}"
        th:text="${person.getName()}"> user
     </a>
-
 </div>
+
+<br/>
+<!-- Create new button  -->
+<form th:metod="get" th:action="@{/people/new}">
+    <input type="submit" value="Create new"/>
+</form>
 
 </body>
 
