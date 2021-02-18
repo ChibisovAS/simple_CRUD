@@ -1,10 +1,23 @@
 package myMVC.models;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class Person {
 
     private Integer id;
+
+    @NotEmpty(message = "Name should not be empty!")
+    @Size(min = 2, max = 15,message = "Name should have min-2/max-15 characters")
     private String name;
+
+    @Min(value = 0, message = "Age should be greater than zero")
     private Integer age;
+
+    @NotEmpty(message = "Email should not be empty!")
+    @Email
     private String email;
 
 

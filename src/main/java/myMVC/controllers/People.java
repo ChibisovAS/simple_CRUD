@@ -5,7 +5,10 @@ import myMVC.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/people")
@@ -39,7 +42,10 @@ public class People {
     }
 
     @PostMapping()
-    public String create(@ModelAttribute("person") Person person) {
+    public String create(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "people/new";
+        }
         personFakeDAO.save(person);
         return "redirect:/people";
     }
@@ -49,7 +55,10 @@ public class People {
         return "people/edit";
     }
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("person") Person person, @PathVariable int id) {
+    public String update(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult, @PathVariable int id) {
+        if (bindingResult.hasErrors()) {
+            return "people/edit";
+        }
         personFakeDAO.update(id,person);
         return "redirect:/people";
     }
