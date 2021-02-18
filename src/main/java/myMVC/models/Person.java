@@ -1,12 +1,18 @@
 package myMVC.models;
 
 public class Person {
-    private String name;
-    private Integer id;
 
-    public Person(String name, Integer id) {
-        this.name = name;
+    private Integer id;
+    private String name;
+    private Integer age;
+    private String email;
+
+
+    public Person(Integer id, String name, Integer age, String email) {
         this.id = id;
+        this.name = name;
+        this.age = age;
+        this.email = email;
     }
 
     public Person() {
@@ -26,5 +32,21 @@ public class Person {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
