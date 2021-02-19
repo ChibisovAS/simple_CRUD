@@ -790,8 +790,10 @@ false Zulu
       <ObjectId>24577</ObjectId>
       <Comment>alishev lesson 25</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>516</IntrospectionStateNumber>
+      <IntrospectionStateNumber>542</IntrospectionStateNumber>
       <Current>1</Current>
+      <Relations>sequence|table|24597|24599|1
+</Relations>
     </database>
     <database id="3" parent="1" name="java_ee_db">
       <ObjectId>16394</ObjectId>
@@ -870,7 +872,7 @@ UC/10
 </Acl>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>517</IntrospectionStateNumber>
+      <IntrospectionStateNumber>543</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="19" parent="2" name="plpgsql">
@@ -970,35 +972,65 @@ UC/10
       <HandlerId>335</HandlerId>
       <Type>index</Type>
     </access-method>
-    <table id="31" parent="18" name="person">
-      <ObjectId>24584</ObjectId>
+    <sequence id="31" parent="18" name="person_id_seq">
+      <ObjectId>24594</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>504</StateNumber>
+      <StateNumber>530</StateNumber>
+      <DataType>bigint|0s</DataType>
+    </sequence>
+    <sequence id="32" parent="18" name="person_id_seq1">
+      <ObjectId>24597</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>541</StateNumber>
+      <DataType>integer|0s</DataType>
+    </sequence>
+    <table id="33" parent="18" name="person">
+      <ObjectId>24599</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>541</StateNumber>
     </table>
-    <column id="32" parent="31" name="id">
+    <column id="34" parent="33" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>512</StateNumber>
+      <StateNumber>541</StateNumber>
+      <DefaultExpression>nextval(&apos;person_id_seq1&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="33" parent="31" name="name">
+    <column id="35" parent="33" name="name">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
-      <StateNumber>504</StateNumber>
+      <StateNumber>541</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="34" parent="31" name="age">
+    <column id="36" parent="33" name="age">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>504</StateNumber>
+      <StateNumber>541</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="35" parent="31" name="email">
+    <column id="37" parent="33" name="email">
       <Position>4</Position>
       <DataType>varchar|0s</DataType>
-      <StateNumber>504</StateNumber>
+      <StateNumber>541</StateNumber>
       <TypeId>1043</TypeId>
     </column>
+    <index id="38" parent="33" name="person_pkey">
+      <ObjectId>24606</ObjectId>
+      <StateNumber>541</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0</CollationIds>
+      <ClassIds>1978</ClassIds>
+    </index>
+    <key id="39" parent="33" name="person_pkey">
+      <ObjectId>24607</ObjectId>
+      <StateNumber>541</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>person_pkey</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>
