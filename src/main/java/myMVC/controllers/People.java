@@ -50,11 +50,13 @@ public class People {
         personDAO.save(person);
         return "redirect:/people";
     }
+
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable int id){
         model.addAttribute("person",personDAO.show(id));
         return "people/edit";
     }
+
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult, @PathVariable int id) {
         if (bindingResult.hasErrors()) {
@@ -63,6 +65,7 @@ public class People {
         personDAO.update(id,person);
         return "redirect:/people";
     }
+
     @DeleteMapping("/{id}")
     public String delete(@PathVariable int id){
         personDAO.delete(id);
